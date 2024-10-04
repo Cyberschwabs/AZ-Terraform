@@ -1,0 +1,29 @@
+name: Main Branch
+
+trigger:
+  branches:
+    include:
+      - 'main'
+    exclude:
+      - 'dev'
+
+pool:
+  name: WSL Agent
+
+steps:
+- script: |
+    terraform fmt
+    terraform init
+    terraform validate
+  workingDirectory: /home/wsladmin/azure-repos/Terraform_Projects/dev
+  displayName: 'Terraform Init and Validate'
+
+- script: |
+    terraform plan
+  workingDirectory: /home/wsladmin/azure-repos/Terraform_Projects/dev
+  displayName: 'Terraform Plan'
+
+- script: |
+    terraform apply -auto-approve
+  workingDirectory: /home/wsladmin/azure-repos/Terraform_Projects/dev
+  displayName: 'Terraform Apply'
