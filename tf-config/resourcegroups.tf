@@ -3,8 +3,8 @@ module "resource_groups" {
 
   resourcegroups = {
     poc-uks-avd-rg = {
-      name     = "poc-uks-avd-rg"
-      location = "East US"
+      name     = "poc-${var.resourcegroup}"
+      location = var.location
     }
   }
 }

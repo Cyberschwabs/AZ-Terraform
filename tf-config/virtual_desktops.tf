@@ -3,7 +3,7 @@ module "virtual_desktops" {
 
   avd-ws = {
     test-avd-ws = {
-      name = "test-avd-ws"
+      name = "pov-${var.workspace}"
       location = module.resource_groups.resourcegroups["poc-uks-avd-rg"].location
       resource_group_name = module.resource_groups.resourcegroups["poc-uks-avd-rg"].name
 
@@ -14,12 +14,12 @@ module "virtual_desktops" {
 
   avd-hp = {
     test-avd-hp = {
-      name = "test-avd-hp"
+      name = "poc-${var.hostpool}"
       location            = module.resource_groups.resourcegroups["poc-uks-avd-rg"].location
       resource_group_name = module.resource_groups.resourcegroups["poc-uks-avd-rg"].name
 
-      name                     = "test-avd-hp"
-      friendly_name            = "test-avd-hp"
+      name                     = "poc-${var.hostpool}"
+      friendly_name            = "poc-${var.hostpool}"
       validate_environment     = false
       start_vm_on_connect      = true
       custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
@@ -32,13 +32,13 @@ module "virtual_desktops" {
 
   avd-ag = {
     test-avd-ag = {
-      name = "test-avd-ag"
+      name = "poc-${var.appgroup}"
       location = module.resource_groups.resourcegroups["poc-uks-avd-rg"].location
       resource_group_name = module.resource_groups.resourcegroups["poc-uks-avd-rg"].name
 
       type          = "RemoteApp"
       host_pool_id  = module.virtual_desktops.avd-hp["test-avd-hp"].id
-      friendly_name = "TestAppGroup"
+      friendly_name = var.appgroup
       description   = "TestAppGroup"
     }
   }
