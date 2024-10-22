@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
+                sh 'cd tf-config'
                 sh 'terraform init'
             }
         }
