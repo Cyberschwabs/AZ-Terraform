@@ -3,7 +3,7 @@ module "resource_groups" {
 
   resourcegroups = {
     poc-uks-avd-rg = {
-      name     = "poc-${var.resourcegroup}-new"
+      name     = "poc-${var.resourcegroup}"
       location = var.location
     }
   }
