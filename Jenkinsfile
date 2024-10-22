@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('TF Init') {
+        stage('Terraform Init') {
             steps {
                 sh 'terraform init'
             }
         }
-        stage('TF Plan') {
+        stage('Terraform Plan') {
             steps {
                 sh 'terraform plan'
             }
