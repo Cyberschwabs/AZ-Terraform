@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh 'terraform.exe -chdir=tf-config/ init'
+                sh 'terraform -chdir=tf-config/ init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                sh 'terraform.exe -chdir=tf-config/ plan'
+                sh 'terraform -chdir=tf-config/ plan'
             }
         }
     }
