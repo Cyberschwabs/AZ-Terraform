@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('AZ Login') {
             steps {
-                sh 'az login --service-principal -u ${env.appId} -p ${env.appSec} --tenant ${env.tenant}'
+                sh 'az login --service-principal -u $appId -p $appSec --tenant $tenant'
             }
         }
         stage('Terraform Init') {
