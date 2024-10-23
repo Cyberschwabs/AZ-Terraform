@@ -3,6 +3,9 @@ pipeline {
     stages {
         stage('AZ Login') {
             steps {
+                echo '$appId'
+                echo '$appSec'
+                echo '$tenant'
                 sh 'az login --service-principal -u $appId -p $appSec --tenant $tenant'
             }
         }
