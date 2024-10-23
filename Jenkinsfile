@@ -1,11 +1,14 @@
 pipeline {
     agent any
     stages {
-         stage('Login to Azure') {
+        stage('Login to Azure') {
             steps {
                 script {
                     withCredentials([azureServicePrincipal(credentialsId: 'az-sp-cred')]) {
-                        sh 'az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} -t ${AZURE_TENANT_ID}'
+                        powershell '''
+                            # Connect to Azure using Service Principal
+                            Connect-AzAccount -ServicePrincipal -ApplicationId $AZURE_CLIENT_ID -TenantId $AZURE_TENANT_ID -CertificateThumbprint $AZURE_CLIENT_SECRET
+                        '''
                     }
                 }
             }
