@@ -9,6 +9,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 sh 'terraform -chdir=tf-config/ plan'
+
             }
         }
     }
