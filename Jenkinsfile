@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        az login --service-principal -u "${appId}" -p "${appSec}" --tenant "${tenant} --subscription "${subscriptionId}"
+                        az login --service-principal -u "${appId}" -p "${appSec}" --tenant "${tenant}"
                     '''
                 }
             }
