@@ -3,14 +3,9 @@ pipeline {
     stages {
          stage('Login to Azure') {
             steps {
-                script {
-//                     withCredentials([azureServicePrincipal(credentialsId: 'az-sp-cred')]) {
-//                         sh 'az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} --tenant ${AZURE_TENANT_ID}'
-//                     }
-                       sh 'az login --use-device-code'
+                sh 'az login --service-principal -u ${env.appId} -p ${env.appSec} --tenant ${env.tenant}'
                 }
             }
-        }
         stage('Terraform Init') {
             steps {
                 sh 'terraform -chdir=tf-config/ init'
