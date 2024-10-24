@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    az login --service-principal -u $AZURE_CLIENT_ID -p 'DJd8Q~vL.x02tO-ITUukii3_1qKIh.ZMDQ3klcl7' --tenant $AZURE_TENANT_ID
+                    az login --service-principal -u $AZURE_CLIENT_ID -p ${env.AZURE_CLIENT_SECRET} --tenant $AZURE_TENANT_ID
                     az account show
                     '''
                 }
