@@ -7,7 +7,7 @@ pipeline {
 //                     withCredentials([azureServicePrincipal(credentialsId: 'az-sp-cred')]) {
 //                         sh 'az login --service-principal -u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} --tenant ${AZURE_TENANT_ID}'
 //                     }
-                        azureLogin(azureServiceConnection: 'az-sp-cred'
+                        sh 'az login --use-device-code'
                 }
             }
         }
