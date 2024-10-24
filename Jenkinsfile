@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Login to Azure') {
+        stage('Login to Azure CLI') {
             steps {
                 script {
                     sh '''
