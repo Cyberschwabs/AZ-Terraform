@@ -1,20 +1,19 @@
 pipeline {
     agent any
     stages {
+        stage('File Structure') {
+            steps {
+                sh "ls -la"
+            }
+        }
         stage('Terraform Version') {
             steps {
                 sh "terraform -version"
             }
         }
-        stage('File Structure') {
-            steps {
-                sh "pwd"
-                sh "ls -la"
-            }
-        }
         stage('Terraform Init') {
             steps {
-                sh "cd tf-config && terraform init"
+                sh "terraform -chdir=tf-config/ init"
             }
         }
         stage('Azure Login + Terraform Plan ') {
