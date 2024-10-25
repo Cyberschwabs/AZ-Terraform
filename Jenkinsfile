@@ -10,12 +10,10 @@ pipeline {
         stage('Azure Login') {
             steps {
                 script {
-                    // Accessing the credentials
-                    def username = credentials('userInfo').username
-                    def password = credentials('userInfo').password
-
-                    // Use the credentials, e.g., in a shell command
-                    sh 'az login -u $(username) -p $(password)'
+                    withCredentials([usernamePassword(credentialsId: 'userInfo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        // Use the credentials, e.g., in a shell command
+                        sh 'az login -u $USERNAME -p $PASSWORD'
+                    }
                 }
             }
         }
