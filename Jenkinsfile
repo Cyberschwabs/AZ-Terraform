@@ -7,6 +7,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 sh "terraform -chdir=tf-config/ init"
+                echo "Terraform Plan Stage Next"
             }
         }
         stage('Terraform Plan') {
