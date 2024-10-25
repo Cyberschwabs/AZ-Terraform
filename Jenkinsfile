@@ -1,10 +1,14 @@
 pipeline {
     agent any
     stages {
+        stage('Terraform Version') {
+            steps {
+                sh "terraform -version"
+            }
+        }
         stage('Terraform Init') {
             steps {
                 sh "terraform -chdir=tf-config/ init"
-                echo "Terraform Plan Stage Next"
             }
         }
         stage('Azure Login + Terraform Plan') {
