@@ -11,7 +11,7 @@ pipeline {
                 sh "terraform -chdir=tf-config init"
             }
         }
-        stage('Azure Login + Terraform Plan') {
+        stage('Azure Login + Terraform Plan ') {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: 'JenkinsSP', clientIdVariable: '$CLIENT_ID', clientSecretVariable: '$CLIENT_SECRET', tenantIdVariable: '$TENANT_ID')])
                 {
