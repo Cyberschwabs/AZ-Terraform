@@ -14,8 +14,7 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh "cd tf-config"
-                sh "terraform init"
+                sh "cd tf-config && terraform init"
             }
         }
         stage('Azure Login + Terraform Plan ') {
