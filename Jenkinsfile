@@ -20,7 +20,6 @@ pipeline {
 
                     // Use the credentials, e.g., in a shell command
                     sh "az login -u $username -p $password"
-                    }
                 }
             }
         }
