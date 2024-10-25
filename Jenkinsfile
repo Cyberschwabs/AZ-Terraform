@@ -13,6 +13,7 @@ pipeline {
                     // Use withCredentials to securely handle Azure credentials
                     withCredentials([azureServicePrincipal(credentialsId: 'JenkinsSP', clientIdVariable: 'AZURE_CLIENT_ID', clientSecretVariable: 'AZURE_CLIENT_SECRET', tenantIdVariable: 'AZURE_TENANT_ID')]) {
                         sh "az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID"
+                        sh "terraform -chdir=tf-config/ init"
                     }
                 }
             }
