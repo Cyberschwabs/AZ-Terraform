@@ -5,20 +5,20 @@ variable "subscription_id" {
   default = "1024008c-c2d6-4d84-ade6-c1af7bee2bae"
 }
 
-variable "client_secret" {
-  description = "Client Secret SP"
-  type = string
-}
-
-variable "client_id" {
-  description = "Client Secret SP"
-  type = string
-}
-
-variable "client_tenant" {
-  description = "Client Secret SP"
-  type = string
-}
+# variable "client_secret" {
+#   description = "Client Secret SP"
+#   type = string
+# }
+#
+# variable "client_id" {
+#   description = "Client Secret SP"
+#   type = string
+# }
+#
+# variable "client_tenant" {
+#   description = "Client Secret SP"
+#   type = string
+# }
 
 # Resource Group Name / Location
 variable "resourcegroup" {
