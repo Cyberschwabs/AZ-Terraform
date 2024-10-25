@@ -15,7 +15,7 @@ pipeline {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: 'JenkinsSP', subscriptionIdVariable: '$SUBS_ID', clientIdVariable: '$CLIENT_ID', clientSecretVariable: '$CLIENT_SECRET', tenantIdVariable: '$TENANT_ID')])
                 {
-                    sh "terraform plan -var 'subscriptionId=$SUBS_ID' -var 'client_id=$CLIENT_ID' -var 'client_secret=$CLIENT_SECRET' -var 'client_tenant=$TENANT_ID'"
+                    sh "terraform plan -var 'subscription_Id=$SUBS_ID' -var 'client_id=$CLIENT_ID' -var 'client_secret=$CLIENT_SECRET' -var 'client_tenant=$TENANT_ID'"
                 }
             }
         }
