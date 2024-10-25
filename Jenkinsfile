@@ -14,7 +14,8 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh "terraform -chdir=tf-config/ init"
+                sh "cd tf-config"
+                sh "terraform init"
             }
         }
         stage('Azure Login + Terraform Plan ') {
