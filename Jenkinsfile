@@ -31,5 +31,10 @@ pipeline {
                 sh 'terraform -chdir=tf-config/ plan'
             }
         }
+        stage('Terraform Apply') {
+            steps {
+                sh 'terraform -chdir=tf-config/ apply -auto-approve'
+            }
+        }
     }
 }
