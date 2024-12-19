@@ -29,12 +29,17 @@ pipeline {
         }
         stage('Terraform Plan') {
             steps {
-                sh 'terraform -chdir=tf-config/ plan'
+                sh 'terraform -chdir=tf-config/ plan -out=tfplan'
+            }
+        }
+        stage('Approve Terraform Apply') {
+            steps {
+                input: 'Do you approve the terraform apply?'
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'terraform -chdir=tf-config/ apply -auto-approve'
+                sh 'terraform apply tfplan'
             }
         }
     }
