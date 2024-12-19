@@ -25,12 +25,12 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh 'terraform -chdir=tf-config/ init'
+                sh 'terraform -chdir=tf-config-networks/ init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                sh 'terraform -chdir=tf-config/ plan'
+                sh 'terraform -chdir=tf-config-networks/ plan -out=myplan.tfplan'
             }
         }
         stage('Approve Terraform Apply') {
@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Terraform Apply') {
             steps {
-                sh 'terraform -chdir=tf-config/ apply'
+                sh 'terraform -chdir=tf-config-networks/ apply myplan.tfplan'
             }
         }
     }
