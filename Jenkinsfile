@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Terraform Plan') {
             steps {
-                sh 'terraform -chdir=tf-config/ plan -out=tfplan'
+                sh 'terraform -chdir=tf-config/ plan'
             }
         }
         stage('Approve Terraform Apply') {
@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Terraform Apply') {
             steps {
-                sh 'terraform apply tfplan'
+                sh 'terraform -chdir=tf-config/ apply'
             }
         }
     }
