@@ -1,4 +1,5 @@
 /* groovylint-disable LineLength, NestedBlockDepth */
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
     stages {
@@ -34,7 +35,7 @@ pipeline {
         }
         stage('Approve Terraform Apply') {
             steps {
-                input: 'Do you approve the terraform apply?'
+                input 'Do you approve the terraform apply?'
             }
         }
         stage('Terraform Apply') {
