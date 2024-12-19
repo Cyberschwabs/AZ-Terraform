@@ -1,9 +1,10 @@
+/* groovylint-disable LineLength, NestedBlockDepth */
 pipeline {
     agent any
     stages {
         stage('File Structure') {
             steps {
-                sh "ls -la"
+                sh 'ls -la'
             }
         }
         stage('Azure Login') {
