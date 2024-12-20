@@ -3,7 +3,7 @@ module "resource_groups" {
 
   resourcegroups = {
     poc-uks-avd-rg = {
-      name     = "${terraform.workspace}-${var.resourcegroup}"
+      name     = "poc-${var.resourcegroup}"
       location = var.location
     }
   }
