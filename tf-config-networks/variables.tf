@@ -24,7 +24,6 @@ variable "subscription_id" {
 variable "resourcegroup" {
   description = "RG Name"
   type        = string
-  default     = "test"
 }
 variable "location" {
   description = "Location"
