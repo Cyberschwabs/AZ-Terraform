@@ -2,9 +2,9 @@ module "resource_groups" {
   source = "../modules/resourcegroups"
 
   resourcegroups = {
-    poc-uks-avd-rg = {
-      name     = "poc-${var.resourcegroup}"
-      location = var.location
+    webapp-rg = {
+      name     = "webapp-rg"
+      location = var.az_location
     }
   }
 }
