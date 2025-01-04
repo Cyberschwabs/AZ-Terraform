@@ -2,7 +2,25 @@
 variable "subscription_id" {
   description = "Subscription ID Azure"
   type        = string
-  default     = "1024008c-c2d6-4d84-ade6-c1af7bee2bae"
+  sensitive = true
+}
+
+variable "client_secret" {
+  description = "Client Secret SP"
+  type = string
+  sensitive = true
+}
+
+variable "client_id" {
+  description = "Client Secret SP"
+  type = string
+  sensitive = true
+}
+
+variable "client_tenant" {
+  description = "Client Secret SP"
+  type = string
+  sensitive = true
 }
 
 variable "az_location" {
