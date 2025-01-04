@@ -25,12 +25,12 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh 'terraform -chdir=tf-config-networks/ init'
+                sh 'terraform -chdir=TF-AVD/ init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                sh 'terraform -chdir=tf-config-networks/ plan -out=myplan.tfplan'
+                sh 'terraform -chdir=TF-AVD/ plan -out=myplan.tfplan'
             }
         }
         stage('Approve Terraform Apply') {
@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Terraform Apply') {
             steps {
-                sh 'terraform -chdir=tf-config-networks/ apply myplan.tfplan'
+                sh 'terraform -chdir=TF-AVD/ apply myplan.tfplan'
             }
         }
     }
